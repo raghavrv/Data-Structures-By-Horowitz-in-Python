@@ -10,6 +10,6 @@ This work is a part of my textbook companionship internship with IIT Bombay [ As
 
 MENTORING ORGANIZATION : Indian Institute Of Technology, Bombay
 
-DEPARTMENT : Free Open Source Software for Science and Education [ FOSSEE ]
+DEPARTMENT : Free and Open Source Software for Education [ FOSSEE ]
 
 WEBSITE URL : http://fossee.in/iitb-cc
