@@ -1,15 +1,11 @@
-------------------------------
 #Data-Structures-By-Horowitz-in-Python
-------------------------------
 
 ## About
-------------------------------
 
 Python implementation of the examples in the text book [Fundamentals of Data Structures by E.Horowitz, S.Sahni and Mehta](http://www.amazon.in/dp/8173716064/ref=cm_sw_r_tw_dp_P0I9sb188T11M).
 This is a part of my contribution to the textbook companionship project organized by the [FOSSEE](http://python.fossee.in/) initiative of [IIT Bombay](https://www.iitb.ac.in/)
 
 ## Installation and Dependencies
-------------------------------
 
 The python codes are written in [IPython Notebooks](http://ipython.org/notebook.html) Version 2.0 - Development Build as on Jan 2014:
 
@@ -67,20 +63,16 @@ Run IPython Notebook
 For more help on IPython notebook try [this official documentation](http://ipython.org/ipython-doc/stable/interactive/notebook.html).
 
 ## Contribute
-----------------------
 
-If you wish to contribute too, visit [FOSSEE](http://fossee.in/) and see if you can find anything matching your interests.
+ you wish to contribute too, visit [FOSSEE](http://fossee.in/) and see if you can find anything matching your interests.
 
 ## Copyright
------------------------
 
-The copyrights for all the codes belong to the FOSSEE Department of IIT Bombay.
+ copyrights for all the codes belong to the FOSSEE Department of IIT Bombay.
 
 ## Contact
 
------------------------
-
-For any queries or help feel free to contact me at:
+ any queries or help feel free to contact me at:
 
 IRC:      rvraghav93
 
@@ -88,6 +80,4 @@ GMail:    rvraghav93@gmail.com
 
 ## About Me:
 
------------------------
-
-I am Raghav RV, an Undergrad student of Anna University interested in FOSS, python, C++, computer vision, big data etc...
+ Raghav RV, an Undergrad student of Anna University interested in FOSS, python, C++, computer vision, big data etc...
