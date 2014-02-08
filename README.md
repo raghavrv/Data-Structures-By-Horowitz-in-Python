@@ -6,7 +6,7 @@
 ------------------------------
 
 Python implementation of the examples in the text book [Fundamentals of Data Structures by E.Horowitz, S.Sahni and Mehta](http://www.amazon.in/dp/8173716064/ref=cm_sw_r_tw_dp_P0I9sb188T11M).
-This is a part of my contribution to the textbook companionship project organized by the [FOSSEE](http://python.fossee.in/) initiative of IIT Bombay.
+This is a part of my contribution to the textbook companionship project organized by the [FOSSEE](http://python.fossee.in/) initiative of [IIT Bombay](https://www.iitb.ac.in/)
 
 ## Installation and Dependencies
 ------------------------------
@@ -83,7 +83,8 @@ The copyrights for this textbook belongs to the FOSSEE Department of IIT Bombay.
 For any queries or help feel free to contact me at:
 
 IRC:      rvraghav93
-GMail:    rvraghav93@gmai.com
+
+GMail:    rvraghav93@gmail.com
 
 ## About Me:
 
