@@ -64,15 +64,15 @@ For more help on IPython notebook try [this official documentation](http://ipyth
 
 ## Contribute
 
- you wish to contribute too, visit [FOSSEE](http://fossee.in/) and see if you can find anything matching your interests.
+If you wish to contribute too, visit [FOSSEE](http://fossee.in/) and see if you can find anything matching your interests.
 
 ## Copyright
 
- copyrights for all the codes belong to the FOSSEE Department of IIT Bombay.
+The copyrights for all the codes belong to the FOSSEE Department of IIT Bombay.
 
 ## Contact
 
- any queries or help feel free to contact me at:
+For any queries or help feel free to contact me at:
 
 IRC:      rvraghav93
 
@@ -80,4 +80,4 @@ GMail:    rvraghav93@gmail.com
 
 ## About Me:
 
- Raghav RV, an Undergrad student of Anna University interested in FOSS, python, C++, computer vision, big data etc...
+I am Raghav RV, an Undergrad student of Anna University interested in FOSS, python, C++, computer vision, big data etc...
