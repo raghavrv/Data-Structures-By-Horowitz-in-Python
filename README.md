@@ -1,8 +1,8 @@
-#Data-Structures-By-Horowitz-in-Python
+#Data Structures By Horowitz in C++ to iPython Notebook
 
 ## About
 
-Python implementation of the examples in the text book [Fundamentals of Data Structures by E.Horowitz, S.Sahni and Mehta](http://www.amazon.in/dp/8173716064/ref=cm_sw_r_tw_dp_P0I9sb188T11M).
+Python implementation of the examples in the text book [Fundamentals of Data Structures in C++ by E.Horowitz, S.Sahni and Mehta](http://www.amazon.in/dp/8173716064/ref=cm_sw_r_tw_dp_P0I9sb188T11M).
 This is a part of my contribution to the textbook companionship project organized by the [FOSSEE](http://python.fossee.in/) initiative of [IIT Bombay](https://www.iitb.ac.in/)
 
 ## Installation and Dependencies
