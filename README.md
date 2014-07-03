@@ -1,4 +1,4 @@
-#Data Structures By Horowitz in C++ to iPython Notebook
+#Data Structures By Horowitz - As iPython Notebooks
 
 ## About
 
