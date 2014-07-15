@@ -23,7 +23,7 @@ Sample - Heap Sort : Refer - FIGURE 7.7, PAGE 416
 
 
 
-.. image:: Chapter\ 7/output_42_1.png
+.. image:: Chapter%207/output_42_1.png
 
 
 .. parsed-literal::
@@ -33,11 +33,11 @@ Sample - Heap Sort : Refer - FIGURE 7.7, PAGE 416
 
 
 
-.. image:: Chapter\ 7/output_42_3.png
+.. image:: Chapter%207/output_42_3.png
 
 
 
-.. image:: Chapter\ 7/output_42_4.png
+.. image:: Chapter%207/output_42_4.png
 
 
 .. parsed-literal::
@@ -46,7 +46,7 @@ Sample - Heap Sort : Refer - FIGURE 7.7, PAGE 416
 
 
 
-.. image:: Chapter\ 7/output_42_6.png
+.. image:: Chapter%207/output_42_6.png
 
 
 .. parsed-literal::
@@ -55,7 +55,7 @@ Sample - Heap Sort : Refer - FIGURE 7.7, PAGE 416
 
 
 
-.. image:: Chapter\ 7/output_42_8.png
+.. image:: Chapter%207/output_42_8.png
 
 
 .. parsed-literal::
@@ -64,7 +64,7 @@ Sample - Heap Sort : Refer - FIGURE 7.7, PAGE 416
 
 
 
-.. image:: Chapter\ 7/output_42_10.png
+.. image:: Chapter%207/output_42_10.png
 
 
 .. parsed-literal::
@@ -73,7 +73,7 @@ Sample - Heap Sort : Refer - FIGURE 7.7, PAGE 416
 
 
 
-.. image:: Chapter\ 7/output_42_12.png
+.. image:: Chapter%207/output_42_12.png
 
 
 .. parsed-literal::
@@ -82,7 +82,7 @@ Sample - Heap Sort : Refer - FIGURE 7.7, PAGE 416
 
 
 
-.. image:: Chapter\ 7/output_42_14.png
+.. image:: Chapter%207/output_42_14.png
 
 
 .. parsed-literal::
@@ -91,7 +91,7 @@ Sample - Heap Sort : Refer - FIGURE 7.7, PAGE 416
 
 
 
-.. image:: Chapter\ 7/output_42_16.png
+.. image:: Chapter%207/output_42_16.png
 
 
 .. parsed-literal::
@@ -100,7 +100,7 @@ Sample - Heap Sort : Refer - FIGURE 7.7, PAGE 416
 
 
 
-.. image:: Chapter\ 7/output_42_18.png
+.. image:: Chapter%207/output_42_18.png
 
 
 .. parsed-literal::
@@ -109,7 +109,7 @@ Sample - Heap Sort : Refer - FIGURE 7.7, PAGE 416
 
 
 
-.. image:: Chapter\ 7/output_42_20.png
+.. image:: Chapter%207/output_42_20.png
 
 
 .. parsed-literal::
