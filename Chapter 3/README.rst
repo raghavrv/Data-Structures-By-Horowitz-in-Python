@@ -4,315 +4,342 @@ CHAPTER 3 - STACKS AND QUEUES
 
 .. code:: python
 
-    #Imports:
-    import numpy as np #Array manipulations
-    import Queue as qu #Queue implementation
+    # Imports:
+    import numpy as np # Array manipulations
+    import Queue as qu # Queue implementation
+    import matplotlib.pyplot as plt # To plot the maze
 PROGRAM 3.1, PAGE 129
 ---------------------
 
 .. code:: python
 
-    #Selection sort
+    # Selection sort
     
-    def SelectionSort(a,n):
-        #Sort a[0] to a[n-1]
+    def selection_sort(a,n):
+        # Sort a[0] to a[n-1]
         for i in range(n):
             j = i
-            #Find smallest integer in a[i] to a[n-1]
+            # Find smallest integer in a[i] to a[n-1]
             for k in range(i+1,n):
                 if a[k] < a[j]:
                     j = k
-            temp = a[i]
-            a.__setitem__(i,a[j])
-            a.__setitem__(j,temp)
-            #Swapping a[i] and a[j] using __setitem__ method
-            #This emulates C++ style call by reference.
+            
+            a[i], a[j] = a[j], a[i]
 PROGRAM 3.2, PAGE 129
 ---------------------
 
 .. code:: python
 
-    #Code Fragment to illustrate template instantiation
-    farray = [ float(j)/2 for j in range(100,0,-1) ]
-    intarray = [ j for j in range(250,0,-1) ]
-    SelectionSort(farray,len(farray))
-    SelectionSort(intarray,len(intarray))
-    #Sample O/P : - Not in textbook
-    #print farray
-    #print intarray
-PROGRAM 3.3, PAGE 130
----------------------
+    # Code Fragment to illustrate template instantiation
+    farray = [ float(j)/2 for j in range(10,0,-1) ]
+    intarray = [ j for j in range(25,0,-1) ]
+    print "Before sorting : "
+    print farray
+    print intarray
+    
+    selection_sort(farray,len(farray))
+    selection_sort(intarray,len(intarray))
+    
+    print "After sorting : "
+    print farray
+    print intarray
 
-.. code:: python
+.. parsed-literal::
 
-    #Function to change size of 1D array
-    def ChangeSize1d(a,oldSize,newSize):
-        for i in range(newSize-oldSize):
-            a.append(0)
+    Before sorting : 
+    [5.0, 4.5, 4.0, 3.5, 3.0, 2.5, 2.0, 1.5, 1.0, 0.5]
+    [25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+    After sorting : 
+    [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+
+
 PROGRAM 3.4, PAGE 131   &   PROGRAM 3.5, PAGE 132
 -------------------------------------------------
 
 .. code:: python
 
-    #Definition of the class Bag containing integers
-    #&
-    #Implementation of operations of Bag
+    # Definition of the class Bag containing integers
+    
+    # The concept of capacity is not necessary in python since
+    # list size and memory management is done automatically by python
     
     class Bag(object):
-        def __init__(self,bagCapacity = 10):
-            if bagCapacity < 1:
-                raise Exception('Capacity must be > 0')
-            self._Bag__capacity = bagCapacity
-            self._Bag__array = []
-            self._Bag__top = -1
-        def Size(self):
+        def __init__(self):
+            
+            self._array = []
+            self._top = -1
+            
+        def size(self):
             '''returns the number of elements in the  bag'''
-            return self._Bag__top + 1
-        def IsEmpty(self):
+            return self._top + 1
+        
+        def is_empty(self):
             '''return true if the bag is empty; false otherwise'''
             return size == 0
-        def Element(self):
+        
+        def element(self):
             '''Return an element that is in the bag'''
-            if self.IsEmpty():
+            if self.is_empty():
                 raise Exception('Bag is empty')
             else:
-                return self._Bag__array[0]
-        def Push(self,elt):
-            if self._Bag__capacity == self._Bag__top+1:
-                ChangeSize1d(self._Bag__array,capacity,2*capacity)
-            self._Bag__capacity *= 2
-            self._Bag__array.append(elt)
-            self._Bag__top += 1
-        def Pop(self):
+                return self._array[0]
+            
+        def push(self,elt):
+            '''Add an integer to the end of the bag'''
+            self._array.append(elt)
+            self._top += 1
+            
+        def pop(self):
             '''Delete an integer from the bag'''
-            self._Bag__array = self._Bag__array[:-1]
-            self._Bag__top -= 1     
+            self._top -= 1 
+            return self._array.pop()
 .. code:: python
 
-    #Sample I/O - Not in textbook:
-    Bg= Bag()
-    Bg.Push(5)
-    Bg.Push(6)
-    Bg.Push(7)
-    Bg.Push(8)
-    Bg.Pop()
-    print Bg._Bag__array
+    bg = Bag()
+    bg.push(5)
+    bg.push(6)
+    bg.push(7)
+    bg.push(8)
+    print "Popped Item : ", bg.pop()
+    print "The contents of the bag : ", bg._array
 
 .. parsed-literal::
 
-    [5, 6, 7]
+    Popped Item :  8
+    The contents of the bag :  [5, 6, 7]
 
+
+.. raw:: html
+
+   <hr>
 
 PROGRAM 3.6, PAGE 133   &   PROGRAM 3.7, PAGE 134
--------------------------------------------------
 
 Python uses `duck typing <http://en.wikipedia.org/wiki/Duck_typing>`__,
 so it doesn't need special syntax to handle multiple types. Hence
 template class for Bag is not required. The above defined class Bag will
 suffice.
 
+.. raw:: html
+
+   <hr>
+
 ADT 3.1, PAGE 137   &   PROGRAM 3.8, PAGE 138   &   PROGRAM 3.9, PAGE 138
 -------------------------------------------------------------------------
 
 .. code:: python
 
-    #Abstract data type Stack
+    # Abstract data type Stack
+    
+    # NOTE: This is done just to understand the working of various methods
+    # Python list is very much versatile and can be readily used as a sophisticated stack
+    # for all practical purposes
+    
     class Stack:
-        '''A finite ordered list with zero or more elements'''
-        def __init__(self, stackCapacity = 10):
-            '''Create an empty stack whose initial capacity is stackCapacity'''
-            self._Stack__stackCapacity = stackCapacity
-            self._Stack__stack = []
-            self._Stack__top = -1
-            #_Stack__<varname> is used to define (C++ Style) private variables in python.
-        def IsEmpty(self):
+        def __init__(self):
+            self._stack = []
+            self._top = -1
+            
+        def is_empty(self):
             '''If number of elements in the stack is 0, return True
                else return False'''
-            if self._Stack__top == -1:
-                return True
-            else:
-                return False
-        def Top(self):
-            return self._Stack__top
-        def Push(self, item):
+            return self._top == -1
+        
+        def top(self):
+            return self._top
+        
+        def push(self, item):
             '''Insert item into the top of the stack'''
-            #Adding to a stack, Page 138
-            if self._Stack__stackCapacity == self._Stack__top + 1:
-                self._Stack__stackCapacity *= 2
-            self._Stack__stack.append(item)
-            self._Stack__top += 1
-        def Pop(self):
+            
+            self._stack.append(item)
+            self._top += 1
+            
+        def pop(self):
             '''Delete the top element of the stack'''
-            #Deleting from a stack, Page 138
-            if self.IsEmpty():
+            
+            if self.is_empty():
                 raise Exception('Stack is empty. Cannot delete.')
-            self._Stack__stack.pop()
-            self._Stack__top -= 1
-ADT 3.2, PAGE 140
------------------
+            
+            self._stack.pop()
+            self._top -= 1
+ADT 3.2, PAGE 140     -     Program 3.2, PAGE 144     -     Program 3.11 & 3.12 PAGE 146 & 147
+----------------------------------------------------------------------------------------------
 
 .. code:: python
 
-    #Abstract data type Queue
+    # Abstract data type Queue
     
-    #Inbuilt library Queue is used. The Queue object is imported as 'qu'.
+    # NOTE: Inbuilt library Queue can be used for all practical purposes.
+    # Again the concept of capacity is unnecessary in python, since the 
+    # queue containers lists are automatically managed
     
     class Queue:
         '''Abstract Data type Queue'''
-        def __init__(self, queueCapacity = 10):
-            '''Create a queue, whose initial capacity is queueCapacity'''
-            self.queue = []
-            self.front = -1
-            self.rear = -1
-            self.queueCapacity = queueCapacity
-        def IsEmpty(self):
-            '''If number of elements is 0 then return True else return False'''
-            return len(self.queue) == 0
-        def Front(self):
+        def __init__(self):
+            self._queue = []
+            
+        def is_empty(self):
+            return len(self._queue) == 0
+        
+        def front(self):
             '''Return the element at the rear of the queue'''
             try:
-                return self.queue[self.front]
-            except qu.Empty:
+                return self._queue[0]
+            except:
                 return None
-        def Rear(self):
+            
+        def rear(self):
             '''Return the element at the rear of the queue'''
             try:
-                return self.queue[self.rear]
-            except qu.Empty:
+                return self._queue[-1]
+            except:
                 return None
-        def Push(self, item):
-            '''Insert item at the rear of the queue'''
-            pass
-        def Pop(self):
+            
+        def push(self, item):
+            '''Add item to the rear of queue'''
+            self._queue.append(item)
+            
+        def pop(self):
             '''Delete the front element of the queue'''
-            pass
-PROGRAM 3.10, PAGE 144   &   PROGRAM 3.11, PAGE 146
----------------------------------------------------
-
+            if self.is_empty():
+                raise Exception('Queue is empty. Cannot delete')
+            else:
+                self._queue.pop()
 .. code:: python
 
+    # Sample I/O
     
-    #Adding to a queue, Page 144:
-    def Push(self,item):
-        '''Add x to the rear of queue'''
-        if self.queueCapacity == self.rear+1:
-            #Doubling queue capacity, Page 146
-            self.queueCapacity = 2*self.queueCapacity
-        self.queue.append(item)
-        self.rear += 1
-        if self.queueCapacity == 1:
-            #for the first element added
-            self.front = 0
-    Queue.Push = Push 
-PROGRAM 3.12, PAGE 147
-----------------------
-
-.. code:: python
-
-    #Deleting from a queue
-    def Pop(self):
-        '''Delete front element from queue'''
-        if self.IsEmpty():
-            raise Exception('Queue is empty. Cannot delete')
-        else:
-            self.front += 1 
-            self.queue = self.queue[1:]
-            #the first element is removed from the queue.
-    Queue.Pop = Pop
-.. code:: python
-
-    #Sample I/O - Not in text book:
-    a = Queue(10)
-    a.Push(5)
-    a.Push(6)
-    a.Push(9)
-    a.Push(8)
-    a.Pop()
-    print a.queue
+    a = Queue()
+    a.push(5)
+    a.push(6)
+    a.push(9)
+    a.push(8)
+    a.pop()
+    print "The contents of the queue : ", a._queue
+    print "The front of the queue : ", a.front()
+    print "The rear of the queue : ", a.rear()
 
 .. parsed-literal::
 
-    [6, 9, 8]
+    The contents of the queue :  [5, 6, 9]
+    The front of the queue :  5
+    The rear of the queue :  9
 
 
-PROGRAM 3.13, PAGE 149
-----------------------
+PROGRAM 3.13, PAGE 149 - PROGRAM 3.14, PAGE 150
+-----------------------------------------------
 
 .. code:: python
 
-    #Code Snippet demonstrating inheritance
+    # Implementataion of stack operations.
+    # Here the concept of capacity is not neglected
+    # This allows fixed stack sizes which have many practical applications
+    # Again, lists can be used as stacks for all practical purposes
+    
+    # Stack class inherits from class Bag
+    
     class Stack(Bag):
-        '''Stack class inherits from class Bag'''
-        def __init__(self, stackCapacity = 10):
-            pass
-        def Top(self):
-            pass
-        def Pop(self):
-            pass
-PROGRAM 3.14, PAGE 150
-----------------------
-
-.. code:: python
-
-    #Implementataion of stack operations.
-    def __init__(self, stackCapacity = 10):
-        '''Create an empty stack whose initial capacity is stackCapacity'''
-        self._Stack__stackCapacity = stackCapacity
-        self._Stack__stack = []
-        self._Stack__top = -1
-        #_Stack__<varname> is used to define (C++ Style) private variables in python.
-    Stack.__init__ = __init__
-    def IsEmpty(self):
-        '''If number of elements in the stack is 0, return True
-           else return False'''
-        return len(self._Stack__stack)==0
-    Stack.IsEmpty = IsEmpty
-    def Top(self):
-        if self._Stack__top != -1:
-            return self._Stack__stack[self._Stack__top]
-        else:
-            return None
-    Stack.Top = Top
-    def Push(self, item):
-        '''Insert item into the top of the stack'''
-        #Adding to a stack, Page 138
-        if self._Stack__stackCapacity == self._Stack__top + 1:
-            self._Stack__stackCapacity *= 2
-        self._Stack__stack.append(item)
-        self._Stack__top += 1
-    Stack.Push = Push
-    def Pop(self):
-        '''Delete the top element of the stack'''
-        #Deleting from a stack, Page 138
-        self._Stack__top -= 1
-        if self.IsEmpty():
-            raise Exception('Stack is empty. Cannot delete.')
-        return self._Stack__stack.pop()
-    Stack.Pop = Pop
     
-    #To print stack contents:
-    def __str__(self):
-        '''Print contents of stack'''
-        strval = ''
-        for elt in self._Stack__stack:
-            strval += str(elt)+' , '
-        return strval.strip(' , ')
-    Stack.__str__ = __str__
+        def __init__(self, stack_capacity = 10):
+            '''Create an empty stack whose initial capacity is stackCapacity'''
+            self._stack_capacity = stack_capacity
+            self._stack = []
+            self._top = -1
+        
+        def is_empty(self):
+            '''If number of elements in the stack is 0, return True
+               else return False'''
+            return len(self._stack)==0
     
-    #To iterate through the stack elements
-    def __iter__(self):
-        yield list(iter(self._Stack__stack))
-    Stack.__iter__ = __iter__
+        def top(self):
+            if self._top != -1:
+                return self._stack[self._top]
+            else:
+                return None
     
-    #To convert a list element to stack
-    def l2s(self,lst):
-        '''Convert a list element to stack'''
+        def push(self, item):
+            '''Insert item into the top of the stack'''
+            # Adding to a stack, Page 138
+            if self._stack_capacity == self._top + 1:
+                self._stack_capacity *= 2
+            self._stack.append(item)
+            self._top += 1
+    
+        def pop(self):
+            '''Delete the top element of the stack'''
+            # Deleting from a stack, Page 138
+            self._top -= 1
+            if self.is_empty():
+                raise Exception('Stack is empty. Cannot delete.')
+            return self._stack.pop()
+         
+        def __str__(self):
+            '''Print contents of stack'''
+            
+            # Based on PROGRAM 3.17, PAGE 159
+            
+            strval = ''
+            for elt in self._stack:
+                strval += str(elt)+' , '
+            return strval.strip(' , ')
+        
+            # This is similar to overloading operator << in C++ for printing the contents of the stack
+            # In python __str__ provides a method for returning the data elements as a string.
+    
+        # To iterate through the stack elements
+        def __iter__(self):
+            return iter(self._stack)
 PROGRAM 3.15 [ Algorithm ], PAGE 156   &   PROGRAM 3.16, PAGE 158
 -----------------------------------------------------------------
 
 .. code:: python
 
-    #Finding a Path through a Maze
+    # A Simple application of Stack
+    # Finding a Path through a Maze. Storing the path in a stack. 
+    # Path is found through brute force search with backtracking
+    
+    def Path(maze, mark, path_stack, m, p, startij = (0,0) ):
+        '''Output a path, if any, in the maze'''
+        
+        # direction array [Increment required to move from current cell ]
+        d_array = [(0,1), (0,-1), (-1,0), (1,0), (-1,1), (1,1), (-1,-1), (1,-1)]
+        #           E,      W,      N,     S,     NE,     SE,    NW,      SW   
+    
+        si, sj = startij
+        
+        for di in d_array:      
+            try:
+                # Navigate to new cell
+                i = si + di[0]
+                j = sj + di[1]
+                
+                if (i<0) or (j<0):
+                    raise IndexError
+                    
+                if (i,j) == (m,p):
+                    path_stack.push((i,j))
+                    return path_stack                
+                
+                if (maze[i][j] == 0) and (mark[i][j] == 0):
+                    mark[i][j] = 1
+                    path_stack.push((i,j))
+                    return Path(maze, mark, path_stack, m, p, (i,j) )
+                
+                if (maze[i][j] == 1) and (mark[i][j] == 0):
+                    mark[i][j] = 1
+                    # revert to prev valid cell if new cell address is not a part of the path
+                    
+            except IndexError:
+                continue
+        try:
+            return Path(maze, mark, path_stack, m, p, path_stack.pop())
+        
+        except Exception, e:
+            print 'No Path in Maze'
+            return None
+.. code:: python
+
     maze = np.array([   [ 0, 0, 0, 0, 0, 0, 0, 0, 1 ],
                         [ 1, 0, 1, 1, 1, 1 ,1, 1, 0 ],
                         [ 1, 0, 0, 0, 1, 1 ,0, 1, 0 ],
@@ -325,72 +352,37 @@ PROGRAM 3.15 [ Algorithm ], PAGE 156   &   PROGRAM 3.16, PAGE 158
     
     mark = np.zeros(maze.shape,int)
     
-    #direction array [Increment required to move from current cell ]
-    dArray = [(0,1), (0,-1), (-1,0), (1,0), (-1,1), (1,1), (-1,-1), (1,-1)]
-    #           E,      W,      N,     S,     NE,     SE,    NW,      SW   
-    pathStack = Stack(maze.size)
-    pathStack.Push((0,0))
-    def Path(m,p,startij = (0,0)):
-        '''Output a path, if any, in the maze'''
-        global maze
-        global mark
-        global dArray
-        global pathStack
-        (si,sj) = startij
-        for di in dArray:      
-            try:
-                #Navigate to new cell
-                i = si + di[0]
-                j = sj + di[1]
-                if (i<0) or (j<0):
-                    raise IndexError
-                if (i,j) == (m,p):
-                    pathStack.Push((i,j))
-                    return pathStack                
-                if (maze[i][j] == 0) and (mark[i][j] == 0):
-                    mark[i][j] = 1
-                    pathStack.Push((i,j))
-                    return Path(m,p,(i,j))
-                if (maze[i][j] == 1) and (mark[i][j] == 0):
-                    mark[i][j] = 1
-                #revert to prev valid cell if new cell address is not a part of the path
-            except IndexError:
-                continue
-        try:
-            return Path(m,p,pathStack.Pop())
-        except Exception, e:
-            print 'No Path in Maze'
-            return None
-    print Path(8,8)
-
+    path_stack = Stack(maze.size)
+    
+    path_stack.push((0,0))
+    
+    print Path(maze, mark, path_stack, 8, 8)
 
 .. parsed-literal::
 
     (0, 0) , (0, 1) , (1, 1) , (2, 1) , (3, 1) , (4, 1) , (4, 0) , (5, 0) , (6, 0) , (6, 1) , (6, 2) , (6, 3) , (6, 4) , (7, 5) , (8, 6) , (8, 7) , (8, 8)
 
 
-PROGRAM 3.17, PAGE 159
-----------------------
-
 .. code:: python
 
-    #To print stack contents:
-    def __str__(self):
-        '''Print contents of stack'''
-        strval = ''
-        for elt in self._Stack__stack:
-            strval += str(elt)+' , '
-        return strval.strip(' , ')
-    Stack.__str__ = __str__
+    %matplotlib inline
+    plt.figure().set_size_inches(10, 10); plt.axis('off'); plt.axis('equal')
     
-    #This is similar to overloading operator << in C++ for printing the contents of the stack
-    #In python __str__ provides a method for returning the data elements as a string.
+    plt.scatter(*np.where(maze == 1), s = 3000, marker = "s", c = "black", edgecolors = "w")
+    plt.plot(*(zip(*path_stack)), marker = "o", linestyle = "--", c = "r")
+    
+    plt.show()
+
+
+.. image:: output_20_0.png
+
+
 PROGRAM 3.18, PAGE 162
 ----------------------
 
 .. code:: python
 
-    #Evaluating Postfix Expressions
+    # Evaluating Postfix Expressions
     def postfixvalue(a,b,expr):
         if expr == '+':
             return a + b 
@@ -400,35 +392,36 @@ PROGRAM 3.18, PAGE 162
             return a / b
         elif expr == '*':
             return a * b
+    
     def Eval(stack_e):
         '''Evaluate a Postfix expression e. It is assumed that the last token is either an operator, operand or #'''
         stack_operations = Stack()    
-        while not stack_e.IsEmpty():
-            a = stack_e.Pop()
+        while not stack_e.is_empty():
+            a = stack_e.pop()
             if str(a).isdigit() != True:
-                stack_operations.Push(a)
+                stack_operations.push(a)
             else:
-                b = stack_e.Pop()            
-                val = postfixvalue(a,b,stack_operations.Pop())
-                if stack_e.IsEmpty():
+                b = stack_e.pop()            
+                val = postfixvalue(a,b,stack_operations.pop())
+                if stack_e.is_empty():
                     return val
                 else:
-                    stack_e.Push(val)
+                    stack_e.push(val)
                 
                 
-        if stack_e.IsEmpty() == False:
-            stack_e.Pop() 
+        if stack_e.is_empty() == False:
+            stack_e.pop() 
         else:
             None              
 .. code:: python
 
     #Sample I/O - Not in textbook
     exp = Stack()
-    exp.Push(3)
-    exp.Push(4)
-    exp.Push(5)
-    exp.Push('+')
-    exp.Push('-')
+    exp.push(3)
+    exp.push(4)
+    exp.push(5)
+    exp.push('+')
+    exp.push('-')
     print Eval(exp)
 
 .. parsed-literal::
@@ -441,11 +434,12 @@ PROGRAM 3.19, PAGE 165
 
 .. code:: python
 
-    #Converting from Infix to postfix form
+    # Converting from Infix to postfix form
+    
     def isp(op):
         '''Returns the In-Stack Priority of the operator'''
-        #Refer Page 160
-        #Note - Unary operators are not considered they cannot be parsed by our function.
+        # Refer Page 160
+        # Note - Unary operators are not considered they cannot be parsed by our function.
         if op in ['!']:
             return 1
         elif op in ['*','/','%']:
@@ -462,43 +456,42 @@ PROGRAM 3.19, PAGE 165
             return 7
         elif (op == '#') or (op == '('):
             return 8
+    
     def icp(op):
         '''Incoming priority of the operator'''
         if (op == '('):
             return 0
         else:
             return isp(op)
+        
     def Postfix(e):
         '''Output the postfix form of the infix expression '''
         stack = Stack()
-        stack.Push('#')
-        for x in e._Stack__stack:
+        stack.push('#')
+        for x in e._stack:
             if x in ['+','-','/','*']:
-                #If x is an operator
-                while isp(stack.Top()) <= icp(x):
-                    print stack.Pop(),
-                stack.Push(x)
+                # If x is an operator
+                while isp(stack.top()) <= icp(x):
+                    print stack.pop(),
+                stack.push(x)
             elif x == ')':
-                #unstack untill '('
-                while stack.Top() != '(':
-                    print stack.Pop(),            
-                    #Unstack and print it
+                # unstack untill '('
+                while stack.top() != '(':
+                    print stack.pop(),            
+                    # Unstack and print it
             else:
-                #If x is an operand
+                # If x is an operand
                 print x,
-        #End of expression, empty the stack
-        while not stack.IsEmpty():
-            print stack.Pop(),
+        # End of expression, empty the stack
+        while not stack.is_empty():
+            print stack.pop(),
 .. code:: python
 
-    #Sample I/O - Not in Textbook
     e = Stack()
-    e.Push('A')
-    e.Push('*')
-    e.Push('B')
+    map(e.push, "A/B*C+D*E") # Push the infix expression characters one by one ( left to right ) into the e stack
     Postfix(e)
 
 .. parsed-literal::
 
-    A B * #
+    A B / C * D E * + #
 
