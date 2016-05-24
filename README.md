@@ -1,5 +1,8 @@
 ### Data Structures By Horowitz - As iPython Notebooks
 
+Run these notebooks online - [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/rvraghav93/Data-Structures-By-Horowitz-in-Python)
+
+
 Python implementation of the examples in the text book [Fundamentals of
 Data Structures in C++ by E.Horowitz, S.Sahni and
 Mehta](http://www.amazon.in/dp/8173716064/ref=cm_sw_r_tw_dp_P0I9sb188T11M).
