@@ -1,6 +1,6 @@
 ### Data Structures By Horowitz - As iPython Notebooks
 
-Run these notebooks online - [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/rvraghav93/Data-Structures-By-Horowitz-in-Python)
+Run these notebooks online - [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/raghavrv/Data-Structures-By-Horowitz-in-Python)
 
 
 Python implementation of the examples in the text book [Fundamentals of
