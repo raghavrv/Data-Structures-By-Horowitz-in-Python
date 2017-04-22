@@ -83,4 +83,4 @@ The copyrights for all the codes belong to the FOSSEE Department of IIT
 Bombay.
 
 #### Contact
-For any queries or help feel free to contact me at my email rvraghav93@gmail.com
+rvraghav93@gmail.com
